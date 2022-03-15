@@ -18,6 +18,7 @@ plt.xlabel("Petal length (cm)")
 plt.ylabel("Sepal length (cm)")
 plt.legend()
 plt.savefig("versicolor_petal_v_sepal_length_regress.png")
+plt.clf()
 
 dataframe2 = pd.read_csv("iris.csv")
 setosa = dataframe2[dataframe2.species == "Iris_setosa"]
@@ -27,11 +28,12 @@ regression = stats.linregress(x, y)
 slope = regression.slope
 intercept = regression.intercept
 plt.scatter(x, y, label = 'Data')
-plt.plot(a, slope * x + intercept, color = "orange", label = 'Fitted line')
+plt.plot(x, slope * x + intercept, color = "orange", label = 'Fitted line')
 plt.xlabel("Petal length (cm)")
 plt.ylabel("Sepal length (cm)")
 plt.legend()
 plt.savefig("setosa_petal_v_sepal_length_regress.png")
+plt.clf()
 
 
 dataframe3 = pd.read_csv("iris.csv")
@@ -47,6 +49,7 @@ plt.xlabel("Petal length (cm)")
 plt.ylabel("Sepal length (cm)")
 plt.legend()
 plt.savefig("virginica_petal_v_sepal_length_regress.png")
+plt.clf()
 quit()
 
 
