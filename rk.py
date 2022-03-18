@@ -6,14 +6,18 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy import stats
 
-import sys
+dataframe = pd.read_csv("iris.csv")
+
+versicolor = dataframe[dataframe.species == "versicolor"]
+setosa = dataframe[dataframe.species == "setosa"]
+virginica = dataframe[dataframe.species == "virginica"]
 
 
-def get_flower_size_plot():
+def get_flower_size_plot(dataframe, plot_name):
     dataframe = pd.read_csv("iris.csv")
-    versicolor = dataframe[dataframe.species == "Iris_versicolor"]
-    x = versicolor.petal_length_cm
-    y = versicolor.sepal_length_cm
+    versicolor = dataframe[dataframe.species == "versicolor"]
+    x = species.petal_length_cm
+    y = species.sepal_length_cm
     regression = stats.linregress(x, y)
     slope = regression.slope
     intercept = regression.intercept
@@ -22,8 +26,11 @@ def get_flower_size_plot():
     plt.xlabel("Petal length (cm)")
     plt.ylabel("Sepal length (cm)")
     plt.legend()
-    plt.savefig("versicolor_petal_v_sepal_length_regress.png")
+    plt.savefig("versicolor_petal_v_sepal_length_regress_2.png")
     plt.clf()
 
 if __name__ == '__main__':
-    get_flower_size_plot()
+
+    get_flower_size_plot("versicolor", "versicolor_petal_v_sepal_length_regress_2.png")
+
+    #for species in dataframe2: 
